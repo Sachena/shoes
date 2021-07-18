@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org"
->
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:replace="fragments.html :: head"></head>
 <body>
-<h1>output</h1>
-<h1 th:text="${first_brand}"></h1>
-<h1 th:text="${second_brand}"></h1>
-<h1 th:text="${third_brand}"></h1>
+    <div class="container">
+        <div class="row justify-content-center">
+
+                <h1 class="col-12">output</h1>
+                <h1 class="col-12" th:text="${first_brand}"></h1>
+                <h1 class="col-12" th:text="${second_brand}"></h1>
+                <h1 class="col-12" th:text="${third_brand}"></h1>
+
+        </div>
+
+    </div>
 </body>
+
 </html>
