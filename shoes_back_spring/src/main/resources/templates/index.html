@@ -6,15 +6,58 @@
 <body>
 
 <div class="conatiner">
-    <div class="row justify-content-center" style="margin-top: 200px">
-        <form name="form" method="post" action="/upload" enctype="multipart/form-data">
 
-            <input type="file" name="file"/>
-            <input type="submit" id="submit" value="전송"/>
+
+    <div class="row justify-content-center mt-5" >
+        <div class="row justify-content-center">
+            <h1 class="col-12 text-align-center">
+                Shoes Finder
+            </h1>
+        </div>
+
+
+
+        <form name="form" method="post" action="/upload" enctype="multipart/form-data" class="col-12">
+            <div class="row justify-content-center">
+                <div class="image-container">
+                    <img class="border border-secondary mt-5" style="width: 500px; display : block;" id="preview-image" src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
+                    <div class="border border-secondary p-3">
+                        <input style="display: inline;" type="file" id="input-image" name="file"/>
+                        <input  type="submit" id="submit" value="전송"/>
+                    </div>
+
+                </div>
+            </div>
+
+
+
         </form>
     </div>
 
 </div>
+
+<script>
+    function readImage(input) {
+        // 인풋 태그에 파일이 있는 경우
+        if(input.files && input.files[0]) {
+            // 이미지 파일인지 검사 (생략)
+            // FileReader 인스턴스 생성
+            const reader = new FileReader()
+            // 이미지가 로드가 된 경우
+            reader.onload = e => {
+                const previewImage = document.getElementById("preview-image")
+                previewImage.src = e.target.result
+            }
+            // reader가 이미지 읽도록 하기
+            reader.readAsDataURL(input.files[0])
+        }
+    }
+    // input file에 change 이벤트 부여
+    const inputImage = document.getElementById("input-image")
+    inputImage.addEventListener("change", e => {
+        readImage(e.target)
+    })
+</script>
 
 
 </body>

@@ -23,6 +23,7 @@ public class MainController {
 
     @GetMapping("/")
     public String main() {
+
         return "index";
     }
 
@@ -32,7 +33,6 @@ public class MainController {
         byte[] imageByteArray = file.getBytes();
         StringBuilder sb = new StringBuilder();
 
-        System.out.println(imageByteArray);
 
 
         sb.append(StringUtils.newStringUtf8(Base64.encodeBase64(imageByteArray)));
@@ -41,11 +41,10 @@ public class MainController {
                 .path("/check").encode().build().toUri();
 
         RestTemplate restTemplate = new RestTemplate();
-        System.out.println(restTemplate.postForEntity(uri, sb, UserResponse.class));
+
         ResponseEntity<UserResponse> response = restTemplate.postForEntity(uri, sb, UserResponse.class);
 
 
-        System.out.println(response.getBody().getFirst_brand());
 
         model.addAttribute("first_brand", response.getBody().getFirst_brand());
         model.addAttribute("second_brand", response.getBody().getSecond_brand());
