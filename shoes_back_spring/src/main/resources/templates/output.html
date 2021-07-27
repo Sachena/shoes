@@ -6,11 +6,30 @@
 <body>
     <div class="container">
         <div class="row justify-content-center">
+            <h1 class="m-5">결과</h1>
+        </div>
+        <div class="row">
 
-                <h1 class="col-12">output</h1>
-                <h1 class="col-12" th:text="${first_brand}"></h1>
-                <h1 class="col-12" th:text="${second_brand}"></h1>
-                <h1 class="col-12" th:text="${third_brand}"></h1>
+
+            <div class="col-4">
+                <img th:src="${first_image}" width="300px" height="300px">
+                <h6 class="m-3" th:text="${first_brand}"></h6>
+            </div>
+
+            <div class="col-4">
+                <img th:src="${second_image}" width="300px" height="300px">
+                <h6 class="m-3" th:text="${second_brand}"></h6>
+            </div>
+
+            <div class="col-4">
+                <img th:src="${third_image}"width="300px" height="300px">
+                <h6 class="m-3" th:text="${third_brand}"></h6>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <h3 class="m-5">
+                나온 신발들에 대해 더 알고싶으시면 사진을 클릭해 주세요
+            </h3>
 
         </div>
 

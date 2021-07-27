@@ -47,8 +47,11 @@ public class MainController {
 
 
         model.addAttribute("first_brand", response.getBody().getFirst_brand());
+        model.addAttribute("first_image", "/images/"+response.getBody().getFirst_brand()+".jpg");
         model.addAttribute("second_brand", response.getBody().getSecond_brand());
+        model.addAttribute("second_image", "/images/"+response.getBody().getSecond_brand()+".jpg");
         model.addAttribute("third_brand", response.getBody().getThird_brand());
+        model.addAttribute("third_image", "/images/"+response.getBody().getThird_brand()+".jpg");
 
 
         return "output";
