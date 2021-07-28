@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -46,16 +43,22 @@ public class MainController {
 
 
 
-        model.addAttribute("first_brand", response.getBody().getFirst_brand());
+        model.addAttribute("first_brand", response.getBody().getFirst_brand().replaceAll("_"," "));
         model.addAttribute("first_image", "/images/"+response.getBody().getFirst_brand()+".jpg");
-        model.addAttribute("second_brand", response.getBody().getSecond_brand());
+        model.addAttribute("second_brand", response.getBody().getSecond_brand().replaceAll("_"," "));
         model.addAttribute("second_image", "/images/"+response.getBody().getSecond_brand()+".jpg");
-        model.addAttribute("third_brand", response.getBody().getThird_brand());
+        model.addAttribute("third_brand", response.getBody().getThird_brand().replaceAll("_"," "));
         model.addAttribute("third_image", "/images/"+response.getBody().getThird_brand()+".jpg");
+
+        model.addAttribute("google","https://www.google.com/search?q=");
 
 
         return "output";
 
     }
+
+
+
+
 
 }
