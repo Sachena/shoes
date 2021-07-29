@@ -1,4 +1,4 @@
-package com.example.shoes_back.controller;
+package com.example.shoes_back;
 
 import com.example.shoes_back.UserResponse;
 import org.apache.tomcat.util.codec.binary.Base64;
